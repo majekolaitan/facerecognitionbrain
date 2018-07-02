@@ -47,14 +47,8 @@ class App extends Component {
     app.models.predict(
       Clarifai.FACE_DETECT_MODEL, 
       this.state.input)
-    .then(
-    function(response) {
-      this.calculateFaceLocation(response);
-    },
-    function(err) {
-      // there was an error
-    }
-  );
+    .then(response => this.calculateFaceLocation(response))
+    .catch(err => console.log(err));
   }
 
   render() {
